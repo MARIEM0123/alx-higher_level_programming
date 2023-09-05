@@ -2,7 +2,7 @@
 # 102-magic_calculation.py
 
 def magic_calculation(a, b, c):
-    """Match bytecode provided by Holberton School."""
+    """THE SAME MAGIC CALCULATING AS YHE provided by Holberton"""
     if a < b:
         return (c)
     if c > b:
