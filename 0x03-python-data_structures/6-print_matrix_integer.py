@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""The function to write all characters in a given matrix."""
+"""The function to write 
+all characters in a given matrix."""
 
 def print_matrix_integer(matrix=[[]]):
     for row in matrix:
