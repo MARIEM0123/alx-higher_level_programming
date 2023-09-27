@@ -2,13 +2,13 @@
 """the class Square."""
 
 class Square:
-    """the square."""
+    """the square DEFINITION"""
 
     def __init__(self, size=0):
-        """Initialization
+        """Initialization TO THE CLASS
 
         Args:
-            size: The size
+            size: The size OF THE CLASS
         """
         if not isinstance(size, int):
             raise TypeError("size must be an integer")

@@ -2,13 +2,13 @@
 """The class Square."""
 
 class Square:
-    """The square."""
+    """The square of the class"""
 
     def __init__(self, size):
-        """Initialization
+        """Initialization to the class
 
         Args:
-            size The size
+            size The size of the class
         """
         self.size = size
 
@@ -26,11 +26,11 @@ class Square:
         self.__size = value
 
     def area(self):
-        """The return"""
+        """The return for area"""
         return (self.__size * self.__size)
 
     def my_print(self):
-        """THE RETURN"""
+        """THE RETURN for my_print"""
         for i in range(0, self.__size):
             [print("#", end="") for j in range(self.__size)]
             print("")

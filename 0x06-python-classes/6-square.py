@@ -2,14 +2,14 @@
 """The class Square."""
 
 class Square:
-    """The square."""
+    """The square class """
 
     def __init__(self, size=0, position=(0, 0)):
-        """Initialization
+        """Initialization to the class
 
         Args:
-            size: The size
-            position: The position
+            size: The size of th class
+            position: The position of the class
         """
         self.size = size
         self.position = position
@@ -46,7 +46,7 @@ class Square:
         return (self.__size * self.__size)
 
     def my_print(self):
-        """Prints thhe square"""
+        """Prints thhe square function my_print"""
         if self.__size == 0:
             print("")
             return

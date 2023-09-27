@@ -2,13 +2,13 @@
 """The class Square"""
 
 class Square:
-    """The square."""
+    """The square OF THE CLASS"""
 
     def __init__(self, size=0):
-        """Initialization
+        """Initialization OF THE CLASS
 
         Args:
-            size: The size
+            size: The size of the class
         """
         self.size = size
 
