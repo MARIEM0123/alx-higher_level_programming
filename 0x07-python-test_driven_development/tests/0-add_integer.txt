@@ -1,0 +1,124 @@
+
+===========================
+The 0-add_integer.py module
+===========================
+
+The definition of the integer addition function module ``add_integer(a, b=98)``.
+
+Usage
+-----
+
+``add_integer(...)``` returns the addition operation,
+that return is equalent of the result of ``+`` operator
+
+::
+
+    >>> add_integer = __import__('0-add_integer').add_integer
+    >>> add_integer(2, 3)
+    5
+
+::
+
+    >>> add_integer(2, -3)
+    -1
+
+The function valid for floating-point numbers
+
+::
+
+    >>> add_integer(2.0, 3.0)
+    5
+
+Floats are reduced to integers before addition
+
+::
+
+    >>> add_integer(2.9, 0.2)
+    2
+
+::
+
+    >>> add_integer(-2.9, -0.2)
+    -2
+
+Valid for floating and non-floating values
+
+::
+
+    >>> add_integer(2.3, -3)
+    -1
+
+The second argument is optional
+
+::
+
+    >>> add_integer(2)
+    100
+
+TypeError case
+--------------
+
+``add_integer()`` test the type of arguments integers or floats.
+Otherwise a TypeError message is shown:
+
+::
+
+    >>> add_integer("hello", 3)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+::
+
+    >>> add_integer(2, "hello")
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+
+::
+
+    >>> add_integer(None)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+::
+
+    >>> add_integer(2.3, None)
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+
+a message eroor is shown if arguments are non-integers and non-floats
+for the first one
+
+::
+
+    >>> add_integer("hello", "there")
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+A message error is shown if infinity is detected
+
+::
+
+    >>> add_integer(float('inf'))
+    Traceback (most recent call last):
+    OverflowError: infinity is detected
+     
+
+::
+
+    >>> add_integer(2, float('inf'))
+    Traceback (most recent call last):
+    OverflowError: infinity is detected
+
+More cases
+
+::
+
+    >>> add_integer(float('nan'))
+    Traceback (most recent call last):
+    ValueError: float NaN is detected
+
+::
+
+    >>> add_integer(2, float('nan'))
+    Traceback (most recent call last):
+    ValueError: float NaN is detected
