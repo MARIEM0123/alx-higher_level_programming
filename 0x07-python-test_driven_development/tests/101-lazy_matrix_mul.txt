@@ -1,0 +1,209 @@
+=============================
+101-lazy_matrix_mul.py module
+============================
+The matrix multiplication function module
+``lazy_matrix_mul(m_a, m_b)``definition
+
+Usage
+-----
+
+The function returns the multiplication of the two matrix
+defined: ``m_a`` by ``m_b``.
+
+::
+
+    >>> lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
+    >>> m_a = [
+    ... [1, 2],
+    ... [3, 4],
+    ... ]
+    >>> m_b = m_a
+    >>> print(lazy_matrix_mul(m_a, m_b))
+    [[ 7 10]
+     [15 22]]
+
+::
+
+    >>> m_a = [[1, 2]]
+    >>> m_b = [
+    ... [3, 4],
+    ... [5, 6]
+    ... ]
+    >>> print(lazy_matrix_mul(m_a, m_b))
+    [[13 16]]
+
+Valid for floating-point numbers
+
+::
+
+    >>> m_a = [
+    ... [1.0, 5.0, 6.0],
+    ... [4.0, 12.0, -9.0]
+    ... ]
+    >>> m_b = [
+    ... [5.0, 3.0],
+    ... [-2.0, 4.0],
+    ... [7.0, 4.0]
+    ... ]
+    >>> print(lazy_matrix_mul(m_a, m_b))
+    [[ 34.0   55.0 ]
+     [-78.0   29.0]]
+
+More cases
+
+::
+
+    >>> print(lazy_matrix_mul(m_a))
+    Traceback (most recent call last):
+    TypeError: lazy_matrix_mul() missing 1 argument: 'm_b'
+
+::
+
+    >>> print(lazy_matrix_mul()) # doctest: +NORMALIZE_WHITESPACE
+    Traceback (most recent call last):
+    TypeError: lazy_matrix_mul() missing 2 arguments: 
+    'm_a' and 'm_b'
+
+ValueErrors
+-----------
+
+ValueError case of no multiplication possibility 
+
+::
+
+    >>> m_a = [
+    ... [1, 2],
+    ... [3, 4],
+    ... ]
+    >>> m_b = [
+    ... [1, 2],
+    ... [2, 3],
+    ... [4, 5]
+    ... ]
+    >>> print(lazy_matrix_mul(m_a, m_b))
+    Traceback (most recent call last):
+    ValueError: No multiplication possibility
+
+A ValueError case of empty parameters
+
+::
+
+    >>> print(lazy_matrix_mul([[]], [[5, 6], [7, 8]]))
+    Traceback (most recent call last):
+    ValueError: No multiple possibility
+
+::
+
+    >>> print(lazy_matrix_mul([[5, 6], [7, 8]], [[]]))
+    Traceback (most recent call last):
+    ValueError: No multiple possibility
+
+TypeError
+---------
+
+Not a list, a ValueError : parameters are not lists
+
+::
+
+    >>> print(lazy_matrix_mul("not a list", [[1, 2]]))
+    Traceback (most recent call last):
+    ValueError: Scalar operands not valid
+
+::
+
+    >>> print(lazy_matrix_mul([[1, 2]], "not a list"))
+    Traceback (most recent call last):
+    ValueError: Scalar operands not valid
+
+::
+
+    >>> print(lazy_matrix_mul("not a list", "also not a list"))
+    Traceback (most recent call last):
+    ValueError: Scalar operands not valid
+
+A TypeError : the None parameter
+
+::
+
+    >>> print(lazy_matrix_mul(None, None))
+    Traceback (most recent call last):
+    TypeError: Object arrays are not valid
+
+A TypeError case: not a list of lists
+
+::
+
+    >>> print(lazy_matrix_mul([1, 2], [[3, 4]]))
+    Traceback (most recent call last):
+    ValueError: Not valid
+
+::
+
+    >>> print(lazy_matrix_mul([[1, 2]], [3, 4]))
+    [11]
+
+::
+
+    >>> print(lazy_matrix_mul([1, 2], [3, 4]))
+    11
+
+ValueError case: Not integers or floats
+
+::
+
+    >>> print(lazy_matrix_mul([[1, "non-number"]], [[3, 4]]))
+    Traceback (most recent call last):
+    ValueError: Not valid
+
+::
+
+    >>> print(lazy_matrix_mul([[5, 6], [7, 8]], [[5, "6"], [7, 8]]))
+    Traceback (most recent call last):
+    TypeError: Not valid
+
+::
+
+    >>> print(lazy_matrix_mul([[0, "MARIEM"]], [[{"c": 2}, 4.84]))
+    Traceback (most recent call last):
+    TypeError: Not valid
+
+A  ValueError not the same lenght 
+
+::
+
+    >>> m_a = [
+    ... [1, 2],
+    ... [3, 4, 5]
+    ... ]
+    >>> m_b = [
+    ... [1, 2],
+    ... [3, 4]
+    ... ]
+    >>> print(lazy_matrix_mul(m_a, m_b))
+    Traceback (most recent call last):
+    ValueError: Not valid
+
+::
+
+    >>> m_a = [
+    ... [1, 2],
+    ... [3, 4]
+    ... ]
+    >>> m_b = [
+    ... [1, 2],
+    ... [3, 4, 5]
+    ... ]
+    >>> print(lazy_matrix_mul(m_a, m_b))
+    Traceback (most recent call last):
+    ValueError: Not valid
+
+::
+
+    >>> m_a = [
+    ... [1, 2],
+    ... [3, 4, 5]
+    ... ]
+    >>> m_b = m_a
+    >>> print(lazy_matrix_mul(m_a, m_b))
+    Traceback (most recent call last):
+    ValueError: Not valid
