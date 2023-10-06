@@ -1,0 +1,220 @@
+
+============================
+The 100-matrix_mul.py module
+============================
+
+A matrix multiplication function ``matrix_mul(m_a, m_b) module definition``.
+
+Usage
+-----
+``matrix_mul(...)`` returns the multiplication matrix
+``m_a`` by ``m_b``
+
+::
+
+    >>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+    >>> m_a = [
+    ... [1, 2],
+    ... [3, 4],
+    ... ]
+    >>> m_b = m_a
+    >>> print(matrix_mul(m_a, m_b))
+    [[7, 10], [15, 22]]
+
+::
+
+    >>> m_a = [[1, 2]]
+    >>> m_b = [
+    ... [3, 4],
+    ... [5, 6]
+    ... ]
+    >>> print(matrix_mul(m_a, m_b))
+    [[13, 16]]
+
+Note: Valid for floating-point numbers.
+
+::
+
+    >>> m_a = [
+    ... [1.1, 4.4, 5.1],
+    ... [5.88, 13.4, -8.1]
+    ... ]
+    >>> m_b = [
+    ... [4.0, 4.4],
+    ... [-1.9, 3.3],
+    ... [8.1, 5.5]
+    ... ]
+    >>> print(matrix_mul(m_a, m_b))
+    [[37.35, 88.93], [-67.55, 28.782]]
+
+Case of both Integers and floats
+
+::
+
+    >>> m_a = [
+    ... [1.1, 4.4, 5.1, 0],
+    ... [5.88, 13.4, -8.1, 0],
+    ... ]
+    >>> m_b = [
+    ... [4.0, 4.4, 0],
+    ... [-1.9, 3.3, 0],
+    ... [8.1,5.5, 0],
+    ... [0, 0, 0]
+    ... ]
+    >>> print(matrix_mul(m_a, m_b))
+    [[37.35, 88.93, 0], [-67.55, 28.782, 0]]
+
+More TypeError cases
+
+::
+
+    >>> print(matrix_mul()) # doctest: +NORMALIZE_WHITESPACE
+    Traceback (most recent call last):
+    TypeError: matrix_mul() missing 2 required positional arguments: 
+    'm_a' and 'm_b'
+
+::
+
+    >>> print(matrix_mul()) # doctest: +NORMALIZE_WHITESPACE
+    Traceback (most recent call last):
+    TypeError: matrix_mul() missing arguments: 
+    'm_a' and 'm_b'
+
+ValueErrors
+-----------
+
+A ValueError is shown if no possible multiplication operation
+
+::
+
+    >>> m_a = [
+    ... [1, 2],
+    ... [3, 4],
+    ... ]
+    >>> m_b = [
+    ... [1, 2],
+    ... [2, 3],
+    ... [4, 5]
+    ... ]
+    >>> print(matrix_mul(m_a, m_b))
+    Traceback (most recent call last):
+    ValueError: No possible multiplication for m_a and m_b
+
+A ValueError in case of empty parameters
+
+::
+
+    >>> print(matrix_mul([], [[1, 2]]))
+    Traceback (most recent call last):
+    ValueError: m_a can't be empty
+
+::
+
+    >>> print(matrix_mul([[1, 2]], [[]]))
+    Traceback (most recent call last):
+    ValueError: m_b can't be empty
+
+::
+
+    >>> print(matrix_mul([[]], []))
+    Traceback (most recent call last):
+    ValueError: m_a can't be empty
+
+Invalid Matrices
+================
+
+A TypeError if they are not lists
+
+::
+
+    >>> print(matrix_mul("not a list", [[1, 2]]))
+    Traceback (most recent call last):
+    TypeError: m_a must be a list
+
+::
+
+    >>> print(matrix_mul([[1, 2]], "not a list"))
+    Traceback (most recent call last):
+    TypeError: m_b must be a list
+
+::
+
+    >>> print(matrix_mul("not a list", "not a list"))
+    Traceback (most recent call last):
+    TypeError: m_a must be a list
+
+::
+
+    >>> print(matrix_mul(None, None))
+    Traceback (most recent call last):
+    TypeError: m_a must be a list
+
+Not just any list - they *must* be lists of lists!
+
+::
+
+    >>> print(matrix_mul([1, 2], [[3, 4]]))
+    Traceback (most recent call last):
+    TypeError: m_a must be a list of lists
+
+::
+
+    >>> print(matrix_mul([[1, 2]], [3, 4]))
+    Traceback (most recent call last):
+    TypeError: m_b must be a list of lists
+
+::
+
+    >>> print(matrix_mul([1, 2], [3, 4]))
+    Traceback (most recent call last):
+    TypeError: m_a must be a list of lists
+
+More TypeError cases
+
+::
+
+    >>> print(matrix_mul([[1, "MARIEM"]], [[3, 4]]))
+    Traceback (most recent call last):
+    TypeError: m_a should contain only integers or floats
+
+::
+
+    >>> print(matrix_mul([[1, 2]], [[{"c": 1}, 8.8]]))
+    Traceback (most recent call last):
+    TypeError: m_b should contain only integers or floats
+
+::
+
+    >>> print(matrix_mul([[1, "MARIEM"]], [[{"c": 1}, 4.4]]))
+    Traceback (most recent call last):
+    TypeError: m_a should contain only integers or floats
+
+Otherwise, a TypeError Two matrix not equivalent
+
+::
+
+    >>> m_a = [
+    ... [1, 2],
+    ... [3, 4, 5]
+    ... ]
+    >>> m_b = [
+    ... [1, 2],
+    ... [3, 4]
+    ... ]
+    >>> print(matrix_mul(m_a, m_b))
+    Traceback (most recent call last):
+    TypeError: each row of m_a must should be of the same size
+
+::
+
+    >>> m_a = [
+    ... [1, 2],
+    ... [3, 4]
+    ... ]
+    >>> m_b = [
+    ... [1, 2],
+    ... [3, 4, 5]
+    ... ]
+    >>> print(matrix_mul(m_a, m_b))
+    Traceback (most recent call last):
+    TypeError: each row of m_b must should be of the same size

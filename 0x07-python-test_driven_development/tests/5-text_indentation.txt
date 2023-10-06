@@ -1,0 +1,101 @@
+================================
+The 5-text_indentation.py module
+================================
+
+A text-indentation ``text_indentation(text)``module definition
+
+Usage
+-----
+
+After each of the characters ``.``, ``?``,
+and ``:`` text is printed with 2 lines
+
+::
+
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+    >>> text_indentation("WHATS YOUR NAME")
+
+No spaces are printed at the beginning of a line.
+
+::
+
+    >>> text_indentation("   MARIEM.")
+    MARIEM.
+    <BLANKLINE>
+
+::
+
+    >>> text_indentation("          ")
+
+At the end of line there is no spaces
+
+::
+
+    >>> text_indentation("Hi.   ")
+    Hi.
+    <BLANKLINE>
+
+::
+
+    >>> text_indentation("    Hey there.   This is MARIEM.   ")
+    Hey there.
+    <BLANKLINE>
+    This is MARIEM.
+    <BLANKLINE>
+
+for the characters ``.``, ``?``, and ``:``
+new lines are shown
+
+::
+
+    >>> text_indentation("My name is MARIEM, HISSOU")
+    My name is MARIEM,HISSOU
+
+More cases for new lines
+
+::
+
+    >>> text_indentation("My name is MARIEM:\nHISSOU.")
+    My name is MARIEM:
+    <BLANKLINE>
+    <BLANKLINE>
+    HISSOU.
+    <BLANKLINE>
+
+::
+
+    >>> text_indentation("\n\n\n My name is MARIEM.")
+    <BLANKLINE>
+    <BLANKLINE>
+    <BLANKLINE>
+    My name is MARIEM
+    <BLANKLINE>
+
+::
+    >>> text_indentation("My name is \n MARIEM.")
+    My name is 
+    MARIEM.
+    <BLANKLINE>
+
+TypeError
+---------
+
+A TypeError is shown if ``text`` is a string
+
+::
+
+    >>> text_indentation(9)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+::
+
+    >>> text_indentation({"three": 3, "four": 4})
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+::
+
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+    TypeError: text must be a string
