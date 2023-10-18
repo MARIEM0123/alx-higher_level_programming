@@ -2,23 +2,24 @@
 """Defines unittests for base.py.
 
 Unittest classes:
-    TestBase_instantiation
-    TestBase_to_json_string
-    TestBase_save_to_file
-    TestBase_from_json_string
-    TestBase_create
-    TestBase_load_from_file
-    TestBase_save_to_file_csv
-    TestBase_load_from_file_csv
+    TestBase_instantiation - line 21
+    TestBase_to_json_string - line 108
+    TestBase_save_to_file - line 154
+    TestBase_from_json_string - line 232
+    TestBase_create - line 286
+    TestBase_load_from_file - line 338
+    TestBase_save_to_file_csv - line 404
+    TestBase_load_from_file_csv - line 482
 """
 import os
 import unittest
 from models.base import Base
-from models.square import Square
 from models.rectangle import Rectangle
+from models.square import Square
+
 
 class TestBase_instantiation(unittest.TestCase):
-    """The class to test instantiation of the Base class"""
+    """Unittests for testing instantiation of the Base class."""
 
     def test_no_arg(self):
         b1 = Base()
@@ -103,8 +104,9 @@ class TestBase_instantiation(unittest.TestCase):
         with self.assertRaises(TypeError):
             Base(1, 2)
 
+
 class TestBase_to_json_string(unittest.TestCase):
-    """The class of function to test to_json_string method of Base class"""
+    """Unittests for testing to_json_string method of Base class."""
 
     def test_to_json_string_rectangle_type(self):
         r = Rectangle(10, 7, 2, 8, 6)
@@ -150,10 +152,11 @@ class TestBase_to_json_string(unittest.TestCase):
 
 
 class TestBase_save_to_file(unittest.TestCase):
-    """The class to test save_to_file method of Base class"""
+    """Unittests for testing save_to_file method of Base class."""
 
+    @classmethod
     def tearDown(self):
-        """The funcgion to delete a function"""
+        """Delete any created files."""
         try:
             os.remove("Rectangle.json")
         except IOError:
@@ -225,8 +228,9 @@ class TestBase_save_to_file(unittest.TestCase):
         with self.assertRaises(TypeError):
             Square.save_to_file([], 1)
 
+
 class TestBase_from_json_string(unittest.TestCase):
-    """The class to test from_json_string method of Base class"""
+    """Unittests for testing from_json_string method of Base class."""
 
     def test_from_json_string_type(self):
         list_input = [{"id": 89, "width": 10, "height": 4}]
@@ -280,7 +284,7 @@ class TestBase_from_json_string(unittest.TestCase):
 
 
 class TestBase_create(unittest.TestCase):
-    """The class to test the function to create method of Base class"""
+    """Unittests for testing create method of Base class."""
 
     def test_create_rectangle_original(self):
         r1 = Rectangle(3, 5, 1, 2, 7)
@@ -332,10 +336,11 @@ class TestBase_create(unittest.TestCase):
 
 
 class TestBase_load_from_file(unittest.TestCase):
-    """The class to test load_from_file_method of Base class"""
+    """Unittests for testing load_from_file_method of Base class."""
 
+    @classmethod
     def tearDown(self):
-        """The function to delete created files"""
+        """Delete any created files."""
         try:
             os.remove("Rectangle.json")
         except IOError:
@@ -397,10 +402,11 @@ class TestBase_load_from_file(unittest.TestCase):
 
 
 class TestBase_save_to_file_csv(unittest.TestCase):
-    """The class to test the save_to_file_csv method of Base class"""
+    """Unittests for testing save_to_file_csv method of Base class."""
 
+    @classmethod
     def tearDown(self):
-        """The function to delete created files"""
+        """Delete any created files."""
         try:
             os.remove("Rectangle.csv")
         except IOError:
@@ -474,10 +480,11 @@ class TestBase_save_to_file_csv(unittest.TestCase):
 
 
 class TestBase_load_from_file_csv(unittest.TestCase):
-    """The class to test load_from_file_csv method of Base class"""
+    """Unittests for testing load_from_file_csv method of Base class."""
 
+    @classmethod
     def tearDown(self):
-        """the function to delete any created files"""
+        """Delete any created files."""
         try:
             os.remove("Rectangle.csv")
         except IOError:

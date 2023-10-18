@@ -1,11 +1,13 @@
 #!/usr/bin/python3
-"""The test models definition for rectangle.py.
+# test_rectangle.py
+# Brennan D Baraban <375@holbertonschool.com>
+"""Defines unittests for models/rectangle.py.
 
 Unittest classes:
-    TestRectangle_instantiation
-    TestRectangle_width
-    TestRectangle_height
-    TestRectangle_x - line 
+    TestRectangle_instantiation - line 25
+    TestRectangle_width - line 114
+    TestRectangle_height - line 190
+    TestRectangle_x - line 262
     TestRectangle_y - line 334
     TestRectangle_order_of_initialization - line 402
     TestRectangle_area - line 430
