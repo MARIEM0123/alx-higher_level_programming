@@ -15,4 +15,3 @@ for (const j in vlsnq) {
   newDict[vlsnq[j]] = list;
 }
 console.log(newDict);
-
