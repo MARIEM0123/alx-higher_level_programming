@@ -1,5 +1,9 @@
 #!/usr/bin/python3
-"""Python script that fetches https://alx-intranet.hbtn.io/status."""
+"""Fetches https://intranet.hbtn.io/status.
+
+Usage: ./4-hbtn_status.py <URL>
+  - Handles HTTP errors.
+"""
 import requests
 
 
